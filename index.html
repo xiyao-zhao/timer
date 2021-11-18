@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script async src="index.js"></script>
+    <title>Timer</title>
+</head>
+<body>
+    <div class="container">
+        <div class="timer">
+            <div class="dropdowns">
+                <div class="hours">
+                    <select name="hours" id="hours"></select>
+                    <label for="hours">hours</label>
+                </div>
+                <div class="min">
+                    <select name="min" id="min"></select>
+                    <label for="min">min</label> 
+                </div>
+                <div class="sec">
+                    <select name="sec" id="sec"></select>
+                    <label for="sec">sec</label>
+                </div>
+            </div>
+            <div class="display">
+                <div class="time">
+                    <p class="h">0</p>
+                    <p>:</p>
+                    <p class="m">0</p>
+                    <p>:</p>
+                    <p class="s">0</p>
+                </div>
+                <p class="endTime"></p>
+            </div>            
+        </div>
+        <div class="btn">
+            <button class="left" disabled>Cancel</button>
+            <button class="right">Start</button>
+            <!-- <button class="right">Pause</button> -->
+        </div>
+    </div>
+</body>
+</html>
