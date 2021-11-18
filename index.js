@@ -39,34 +39,45 @@ minDropdown.addEventListener("change", (e) => render(min, e.target.value));
 secDropdown.addEventListener("change", (e) => render(sec, e.target.value));
 
 // Handle events on clicking Start button
+// When the Start button isn't clicked, pause button isn't available
 let pauseAvailable = false;
 
 function setIntervalCallBack() {
-    if (+(sec.innerHTML) === 0) {
+    if(+(sec.innerHTML) === 0 && +(min.innerHTML) === 0 && +(hour.innerHTML) === 0) {
+        sec.innerHTML = 0;
+        min.innerHTML = 0;
+        hour.innerHTML = 0;
+        clearInterval(interval);
+        const alarm = new Audio("Alarm-ringtone.mp3");
+        alarm.play();
+    } else if (+(sec.innerHTML) !== 0) {
+        sec.innerHTML--
+    } else if (+(sec.innerHTML) === 0) {
         sec.innerHTML = 59;
         if (+(min.innerHTML) === 0 && +(hour.innerHTML !== 0)) {
             min.innerHTML = 59;
             +(hour.innerHTML)--;
         } else min.innerHTML--;
-    } else {
-        +(sec.innerHTML)--;
     }; 
 }
 
 function clickStartHandler() {
+    if (+(sec.innerHTML) === 0 && +(min.innerHTML) === 0 && +(hour.innerHTML) === 0) {
+        return;
+    };
     cancleBtn.disabled = false;
     pauseAvailable = !pauseAvailable;
-
+    
     if(pauseAvailable) {
         render(startBtn, "Pause");
         startBtn.classList.add("pause");
         dropdowns.style.display = "none";
         display.style.display = "inline";
-        setInterval(setIntervalCallBack, 1000);
+        interval = setInterval(setIntervalCallBack, 1000);
     } else {
         render(startBtn, "Start");
         startBtn.classList.remove("pause");
-        
+        clearInterval(interval);
     }   
 }
 
