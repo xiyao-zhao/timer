@@ -82,7 +82,7 @@ button {
 .display {
     display: none;
     width: 50%;
-    height: 30%;
+    height: 20%;
 }
 
 .time {
@@ -94,6 +94,16 @@ button {
 
 .time > p {
     font-size: 40px;
+}
+
+#endTime {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.endTime {
+    text-align: center;
 }
 
 /* select {
